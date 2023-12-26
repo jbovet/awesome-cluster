@@ -1,7 +1,13 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: hello-crab
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello-crab
+  namespace: hello-crab
   labels:
     app: hello-crab
 spec:

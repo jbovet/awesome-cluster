@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-crab
+  labels:
+    app: hello-crab
+spec:
+  selector:
+    matchLabels:
+      app: hello-crab
+  template:
+    metadata:
+      labels:
+        app: hello-crab
+    spec:
+      containers:
+        - name: hello-crab
+          image: ghcr.io/jbovet/hello-crab:v0.0.1 
+          resources:
+            limits:
+              memory: "64Mi"
+              cpu: "100m"
+          ports:
+            - containerPort: 3000
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 3000
+            initialDelaySeconds: 3
+            periodSeconds: 3
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 3000
+            initialDelaySeconds: 3
+            periodSeconds: 3

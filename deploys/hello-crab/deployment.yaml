@@ -23,7 +23,7 @@ metadata:
   name: hello-crab
 spec:
   rules:
-  - host: hello-crab.awesome-cluster-spmojs.jpbd.dev
+  - host: hello-crab.awesome-cluster-jueiig.jpbd.dev
     http:
       paths:
       - path: /

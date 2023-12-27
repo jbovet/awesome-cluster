@@ -423,6 +423,15 @@ spec:
         app.kubernetes.io/part-of: ingress-nginx
         app.kubernetes.io/version: 1.9.5
     spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchLabels:
+                  app: ingress-nginx
+              topologyKey: "kubernetes.io/hostname"  
       containers:
       - args:
         - /nginx-ingress-controller

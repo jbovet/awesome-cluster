@@ -33,3 +33,7 @@ spec:
           apiKeySecretRef:
             name: cloudflare-api-key
             key: api-key
+      selector:
+        dnsNames:
+        - 'awesome-cluster-jueiig.jpbd.dev'
+        - '*.awesome-cluster-jueiig.jpbd.dev'            

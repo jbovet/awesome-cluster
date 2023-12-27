@@ -23,12 +23,10 @@ spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
     email: jose.bovet@gmail.com
-    privateKeySecretRef:
-      name: letsencrypt
     solvers:
     - dns01:
         cloudflare:
           email: jose.bovet@gmail.com
-          apikeySecretRef:
+          apiKeySecretRef:
             name: cloudflare-api-key
-            key: api-key
+            key: api-key          

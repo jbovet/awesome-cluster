@@ -3,6 +3,38 @@ apiVersion: v1
 metadata:
   name: hello-crab
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-crab
+  namespace: hello-crab
+spec:
+  selector:
+    app: hello-crab
+  ports:
+  - port: 3000
+    targetPort: 3000
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: hello-crab
+  name: hello-crab
+spec:
+  rules:
+  - host: hello-crab.jpbd.dev
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: hello-crab
+            port:
+              number: 3000
+  ingressClassName: nginx
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:

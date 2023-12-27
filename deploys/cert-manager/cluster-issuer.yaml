@@ -23,6 +23,7 @@ metadata:
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
+    preferredChain: "ISRG Root X1"
     email: jose.bovet@gmail.com
     privateKeySecretRef:
       name: letsencrypt
@@ -35,8 +36,4 @@ spec:
             key: api-key
       selector:
         dnsZones:
-        - 'jpbd.dev' 
-        - 'awesome-cluster-jueiig.jpbd.dev'     
-        # dnsNames:
-        # - 'awesome-cluster-jueiig.jpbd.dev'
-        # - '*.awesome-cluster-jueiig.jpbd.dev'            
+        - 'awesome-cluster-jueiig.jpbd.dev'

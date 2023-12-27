@@ -22,6 +22,9 @@ metadata:
   namespace: hello-crab
   name: hello-crab
 spec:
+  tls:
+  - hosts:
+    - hello-crab.awesome-cluster-jueiig.jpbd.dev
   rules:
   - host: hello-crab.awesome-cluster-jueiig.jpbd.dev
     http:

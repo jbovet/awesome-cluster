@@ -35,4 +35,4 @@ spec:
             key: api-key
       selector:
         dnsZones:
-        - 'awesome-cluster-jueiig.jpbd.dev'
+        - 'awesome-cluster.jpbd.dev'

@@ -23,7 +23,7 @@ you will see something like this
 
 ```cert-manager/challenges: propagation check failed" err="DNS record for \"hello-crab.awesome-cluster.jpbd.dev\" not yet propagated" resource_name="hello-crab-tls-1-1512669330-744811377" resource_namespace="hello-crab" resource_kind="Challenge" resource_version="v1" dnsName="hello-crab.awesome-cluster.jpbd.dev" type="DNS-01``` 
 
-wait a couple of minutes to finish propagation, after that, you will see certificate was issued
+* wait a couple of minutes to finish propagation, after that, you will see certificate was issued
 
 ```"cert-manager/certificaterequests-issuer-acme/sign: certificate issued" resource_name="hello-crab-tls-1" resource_namespace="hello-crab" resource_kind="CertificateRequest" resource_version="v1" related_resource_name="hello-crab-tls-1-1512669330" related_resource_namespace="hello-crab" related_resource_kind="Order" related_resource_version="v1"I0103 02:05:15.849262       1 conditions.go:252] Found status change for CertificateRequest "hello-crab-tls-1" condition "Ready": "False" -> "True"; setting lastTransitionTime to 2024-01-03 02:05:15.849249067 +0000 UTC m=+262.914682800```
 

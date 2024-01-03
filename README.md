@@ -2,8 +2,8 @@
 
 1. Fetch and save the kubeseal certificate from cluster in deploys/sealed-secrets/awesome-cluster-cert.pem
  `kubeseal --fetch-cert > deploys/sealed-secrets/awesome-cluster-cert.pem`
-2. Create a kubernetes secret in cert-manager namespace with the cloudflare token and save to file cloudflare-api-key.yaml
-`kubectl create secret generic cloudflare-api-key --from-literal=api-key=my-secret-token --dry-run=client -n cert-manager -o yaml > cloudflare-api-key.yaml`
+2. Create a kubernetes secret in cert-manager namespace with the cloudflare Global API Key and save to file cloudflare-api-key.yaml
+`kubectl create secret generic cloudflare-api-key --from-literal=api-key=my-global-api-key --dry-run=client -n cert-manager -o yaml > cloudflare-api-key.yaml`
 3. Create sealed secret with public sealed secret cert previously fetched
 `kubeseal --format=yaml --cert=deploys/sealed-secrets/awesome-cluster-cert.pem < cloudflare-api-key.yaml > deploys/cert-manager/sealed-secret.yaml`
 4. Commit, push and reconcile

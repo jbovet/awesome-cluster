@@ -23,14 +23,16 @@ metadata:
   name: hello-crab
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt"
-    kubernetes.io/ingress.class: "nginx"  
+    kubernetes.io/ingress.class: "nginx"
 spec:
+  selector:
+  template:
   tls:
   - hosts:
-    - hello-crab.awesome-cluster-jueiig.jpbd.dev
+    - hello-crab.awesome-cluster.jpbd.dev
     secretName: hello-crab-tls
   rules:
-  - host: hello-crab.awesome-cluster-jueiig.jpbd.dev
+  - host: hello-crab.awesome-cluster.jpbd.dev
     http:
       paths:
       - path: /
@@ -60,7 +62,7 @@ spec:
     spec:
       containers:
         - name: hello-crab
-          image: ghcr.io/jbovet/hello-crab:v0.0.1 
+          image: ghcr.io/jbovet/hello-crab:v0.0.1
           resources:
             limits:
               memory: "64Mi"
